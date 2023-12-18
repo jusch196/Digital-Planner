@@ -20,7 +20,7 @@
                 </div>
                 <div class="grid grid-cols-8 gap-2 text-sm">
                     {% for week in calendar.Calendar().monthdatescalendar(year, month_num) -%}
-                        <div class="font-medium text-indigo-500 dark:text-indigo-400 {{ "opacity-50" if week[0].year != week[-1].year }}">
+                        <div class="font-medium text-lime-500 dark:text-lime-400 {{ "opacity-50" if week[0].year != week[-1].year }}">
                             {% set week_num = week[0].isocalendar().week %}
                             <a href="#{{ (week[0].year if week[-1].year != (year + 1) else week[-1].year) ~ '-' ~ ('W%02d' % week_num) }}">
                                 {{ week[0].isocalendar().week }}

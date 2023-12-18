@@ -28,7 +28,11 @@ class PlannerBuilder:
 
     async def add_pages(self):
         # locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
-        for template_name in ["cover", "annual_overview", "monthly", "weekly", "daily", "inbox", "projects", "habits"]:
+
+        name_list = ["cover", "annual_overview", "monthly", "weekly", "daily", "inbox", "projects", "habits"]
+        #name_list = ["cover", "annual_overview"] 
+
+        for template_name in name_list:
             template = self.j2_env.get_template(f"{template_name}.html")
             pages = await template.render_async(year=self.year, calendar=calendar, timedelta=timedelta)
             self.pages.update({template_name: pages})
@@ -50,7 +54,7 @@ async def generate_pdf(html_file_path: str, css_file_path: str, out_file_path: s
 
 
 async def main():
-    builder = PlannerBuilder(year=2024, is_theme_dark=True, templates_path="src/templates")
+    builder = PlannerBuilder(year=2024, is_theme_dark=False, templates_path="src/templates")
     await builder.add_pages()
 
     planner = await builder.build_planner()

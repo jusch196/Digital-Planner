@@ -9,9 +9,13 @@
 }
 
 .content-box {
-    @apply p-2 rounded-xl border-2 border-indigo-300/50 bg-zinc-100 dark:bg-slate-800;
+    @apply p-2 rounded-xl border-2 border-teagreen-300/50 bg-zinc-100 dark:bg-slate-800;
 }
 
 .color-header {
-    @apply text-xl font-semibold text-indigo-600 dark:text-indigo-400;
+    @apply text-xl font-semibold text-teagreen-600 dark:text-teagreen-400;
+}
+
+.teagreen {
+    @apply text-teagreen-600
 }
