@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="grid grid-cols-8 gap-1 text-sm">
                                     {% for cal_week in calendar.Calendar().monthdatescalendar(year, month_num) -%}
-                                        <div class="font-medium text-teagreen-500 dark:text-teagreen-400 {{ "opacity-50" if cal_week[0].year != cal_week[-1].year }}">
+                                        <div class="font-medium text-teagreen-800 dark:text-teagreen-700 {{ "opacity-50" if cal_week[0].year != cal_week[-1].year }}">
                                             {% set week_num = cal_week[0].isocalendar().week %}
                                             <a href="#{{ (cal_week[0].year if cal_week[-1].year != (year + 1) else cal_week[-1].year) ~ '-' ~ ('W%02d' % week_num) }}">
                                                 {{ cal_week[0].isocalendar().week }}
@@ -82,7 +82,7 @@
                                         {% for cal_date in cal_week -%}
                                             <div class="{{ "opacity-50" if cal_date.month != month_num }}">
                                                 <a href="#{{ ('%02d-%02d-%d' % (cal_date.day, cal_date.month, cal_date.year)) }}">
-                                                    <p class="{{ "rounded-full bg-teagreen-200 dark:bg-teagreen-900" if (cal_date.day == date.day and cal_date.month == month_num) }}">
+                                                    <p class="{{ "rounded-full bg-teagreen-500 dark:bg-teagreen-900" if (cal_date.day == date.day and cal_date.month == month_num) }}">
                                                         {{ cal_date.day }}
                                                     </p>
                                                 </a>
